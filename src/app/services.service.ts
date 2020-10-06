@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ServicesService {
   baseUrl = 'http://localhost:3000/transactions';
-  
+
   constructor(private http: HttpClient) { }
 
   getData() {
@@ -17,13 +17,7 @@ export class ServicesService {
     return this.http.post(this.baseUrl, amount);
 
   }
-  postDebitTransaction(amount) {
-    return this.http.post(this.baseUrl, amount);
 
-  }
 
-  getCreditedData(debitOrCredit) {
-    return this.http.get(this.baseUrl + debitOrCredit);
 
-  }
 }

@@ -98,7 +98,7 @@ export class TransactionComponent implements OnInit {
       debitOrCredit: false,
       date: this.date
     }
-    this.service.postDebitTransaction(obj).subscribe(res => {
+    this.service.postCreditTransaction(obj).subscribe(res => {
       console.log(res, "posting");
       this.getData();
       this.transactionForm.reset();
