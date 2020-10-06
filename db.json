@@ -95,6 +95,14 @@
       "debitOrCredit": true,
       "date": "2020-10-05T13:42:52.720Z",
       "id": 12
+    },
+    {
+      "amount": 700,
+      "reason": "ggg",
+      "toatlAmount": 55,
+      "debitOrCredit": true,
+      "date": "2020-10-06T04:51:17.648Z",
+      "id": 13
     }
   ]
 }
