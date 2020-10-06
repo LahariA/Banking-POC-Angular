@@ -7,7 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { TransactionTypePipe } from './transaction-type.pipe';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from'ng6-toastr-notifications';
 
 
 @NgModule({
@@ -24,6 +25,8 @@ import { TransactionTypePipe } from './transaction-type.pipe';
     HttpClientModule,
     FormsModule,
     CommonModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
   providers: [],

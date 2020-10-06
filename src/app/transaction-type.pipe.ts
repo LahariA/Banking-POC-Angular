@@ -5,14 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TransactionTypePipe implements PipeTransform {
 
-  transform(value:boolean): string {
-    if(value == true){
+  transform(value: boolean): string {
+    if (value == true) {
       return '+';
     }
-    else{
+    else {
       return '-';
     }
-    
+
   }
 
 }

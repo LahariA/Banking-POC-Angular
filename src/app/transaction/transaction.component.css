@@ -5,17 +5,14 @@
     padding : 5px 0;
     
    }
-   
+  
    .banner{
        background:url('../../assets/Banking.jpg')  
     no-repeat left bottom; background-size:cover;
      min-height:200px; 
      border-radius: 0 10px 10px 0; 
      padding:0;
-     width: 700px;
-     
-     /* position: relative; */
-     width: 900px;
+     /* width: 900px; */
     }
    .container{
        background:#fff; 
@@ -47,25 +44,59 @@
       .design {
           display: flex;
           flex-wrap: wrap;
-          margin-right: 250px;
-       margin-left: 20px;
-       margin-top: 20px;
+          margin-right: 10px;
+          margin-left: 20px;
+          margin-top: 20px;
       }
       
      .col-sm-4 {
-      /* border-style: solid; */
-      /* border-color: coral; */
       padding: 5px;
   }
-  .card{
+  .all{
       box-shadow: 0 4px 18px 0 rgba(55, 59, 63, 0.2);
     transition: 0.3s;
-    border-color: orangered;
+    border-color: rgb(125, 11, 218);
   }
+  .spendings{
+    box-shadow: 0 4px 18px 0 rgba(55, 59, 63, 0.2);
+  transition: 0.3s;
+  border-color: rgb(212, 14, 14);
+}
+
+.received{
+  box-shadow: 0 4px 18px 0 rgba(55, 59, 63, 0.2);
+transition: 0.3s;
+border-color: green;
+}
 
   h5{
-    /* text-shadow: 1px 1px; */
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
     color:rgb(161, 25, 93)
 }
+
+.all:hover{
+    z-index:1111;
+    transform:perspective(2000px) rotate(-1deg);
+    box-shadow:inset 20px 0 50px rgba(81, 11, 212, 0.5);
+  }
+
+  .spendings:hover{
+    z-index:1111;
+    transform:perspective(2000px) rotate(-1deg);
+    box-shadow:inset 20px 0 50px rgba(218, 7, 60, 0.5);
+  }
+  
+.received:hover{
+  z-index:1111;
+  transform:perspective(2000px) rotate(-1deg);
+  box-shadow:inset 20px 0 50px rgba(15, 223, 32, 0.5);
+}
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button, 
+  input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }

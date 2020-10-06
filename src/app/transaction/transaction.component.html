@@ -7,29 +7,27 @@
           <form [formGroup]="transactionForm">
             <div class="form-group">
               <label>Amount</label>
-              <input type="text" formControlName="amount" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" placeholder="Enter Numbers Only" />
-              <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+              <input type="number" formControlName="amount" class="form-control"
+                [ngClass]="{'is-invalid':  f.amount.errors  && f.amount.touched}" placeholder="Enter Numbers Only" />
+              <div *ngIf=" f.amount.errors && f.amount.touched" class="invalid-feedback">
                 <div *ngIf="f.amount.errors.required">Amount is required</div>
                 <div *ngIf="f.amount.errors.min">Amount Value should minimum 1</div>
                 <div *ngIf="f.amount.errors.max">Amount Value should maximum 1000</div>
                 <div *ngIf="f.amount.errors.pattern">Enter only Numbers</div>
-
               </div>
             </div>
             <div class="form-group">
               <label>Reason</label>
               <input type="text" formControlName="reason" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.reason.errors }" placeholder="Enter Albhabets Only" />
-              <div *ngIf="submitted && f.reason.errors" class="invalid-feedback">
+                [ngClass]="{ 'is-invalid':  f.reason.errors  && f.reason.touched }" placeholder="Enter Albhabets Only" />
+              <div *ngIf="f.reason.errors  && f.reason.touched" class="invalid-feedback">
                 <div *ngIf="f.reason.errors.required">Reason is required</div>
                 <div *ngIf="f.reason.errors.pattern">Enter only strings</div>
               </div>
             </div>
-
             <div class="form-group">
-              <button class="btn btn-info" (click)="postCreditTransaction()">Credit</button>
-              <button class="btn btn-danger ml-4" (click)="postDebitTransaction()">Debit</button>
+              <button class="btn btn-success" (click)="postCreditTransaction()" [disabled] ="transactionForm.invalid">Credit</button>
+              <button class="btn btn-danger ml-4" (click)="postDebitTransaction()" [disabled] ="transactionForm.invalid">Debit</button>
             </div>
           </form>
         </div>
@@ -43,7 +41,6 @@
   <div style="margin-top:2px;" class="">
     <div class="card bg-info text-white text-center p-2 m-2">
       <h6>Available Balance : <b> Rs. {{toatlAmount}}</b></h6>
-
     </div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -59,70 +56,50 @@
           aria-selected="false">Received</a>
       </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content" id="myTabContent" >
       <div class="tab-pane fade show active" id="All" role="tabpanel" aria-labelledby="home-All">
-
-
         <div class="row design">
           <div class="col-sm-4" *ngFor="let item of getTotalData">
-            <div class="card">
+            <div class="card  all">
               <div class="card-body">
                 <h5 class="card-title">{{item.reason}}</h5>
                 <p class="card-text">Total Balance Rs.{{item.toatlAmount}}</p>
                 <p class="card-text">{{item.date | date:'EEEE  MMMM d  yyyy'}}</p>
-
-
                 <p class="card-text"><span>RS </span> <span>{{ item.debitOrCredit | transactionType}}</span>
                   <span>{{item.amount}}</span></p>
-
               </div>
             </div>
           </div>
-
-
         </div>
-
-
-
       </div>
       <div class="tab-pane fade" id="spend" role="tabpanel" aria-labelledby="spend-tab">
-
-
         <div class="row design">
           <div class="col-sm-4" *ngFor="let item of filteredDebitedData ">
-            <div class="card">
+            <div class="card  spendings">
               <div class="card-body">
                 <h5 class="card-title">{{item.reason}}</h5>
                 <p class="card-text">Total Balance Rs.{{item.toatlAmount}}</p>
                 <p class="card-text">{{item.date | date:'EEEE  MMMM d  yyyy'}}</p>
                 <p class="card-text"><span>RS </span> <span>{{ item.debitOrCredit | transactionType}}</span>
                   <span>{{item.amount}}</span></p>
-
               </div>
             </div>
           </div>
-
-
         </div>
-
       </div>
       <div class="tab-pane fade" id="received" role="tabpanel" aria-labelledby="received-tab">
         <div class="row design">
           <div class="col-sm-4" *ngFor="let item of filteredData">
-            <div class="card">
+            <div class="card  received">
               <div class="card-body">
                 <h5 class="card-title">{{item.reason}}</h5>
                 <p class="card-text">Total Balance Rs.{{item.toatlAmount}}</p>
                 <p class="card-text">{{item.date| date:'EEEE  MMMM d  yyyy'}}</p>
-
                 <p class="card-text"><span>RS </span> <span>{{ item.debitOrCredit | transactionType}}</span>
                   <span>{{item.amount}}</span></p>
-
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>
